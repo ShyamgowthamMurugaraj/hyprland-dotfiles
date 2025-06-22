@@ -1,0 +1,79 @@
+@import "~/.cache/wal/colors-rofi-dark.rasi"
+
+configuration {
+    font: "JetBrains Mono 13";
+    show-icons: true;
+    icon-theme: "Papirus";
+    terminal: "kitty";
+    dmenu: false;
+    location: 0;
+    yoffset: 0;
+    xoffset: 0;
+    width: 30;
+    lines: 5;
+    columns: 1;
+
+    
+}
+
+
+
+mainbox {
+    children: [ inputbar, listview ];
+}
+
+inputbar {
+    children: [ entry, case-indicator ];
+    background-color: @background;
+    text-color: @foreground;
+    border-radius: 5;
+    padding: 5;
+}
+
+entry {
+    background-color: @background;
+    text-color: @foreground;
+    padding:20px;
+}
+
+listview {
+    columns: 1;
+    background-color: @background;
+    text-color: @foreground;
+    spacing: 5px;
+    dynamic: true;
+}
+
+element {
+    padding: 7px;
+
+    border-radius: 5px;
+    background-color: @normal-background;
+    text-color: @normal-foreground;
+}
+
+element-text {
+    background-color: inherit;
+    text-color: inherit;
+}
+
+element-icon {
+    size: 20px;
+}
+
+element selected {
+    background-color: @selected-background;
+    text-color: @selected-foreground;
+    border-radius: 5px;
+}
+
+window {
+    background-color: @background;
+    text-color: @foreground;
+    border-radius: 10;
+    border:2px;
+    border-color:@foreground;
+    padding: 10px;
+}
+
+
