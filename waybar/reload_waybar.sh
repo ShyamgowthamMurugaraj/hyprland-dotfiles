@@ -18,20 +18,23 @@ swww img "$SELECTED_WALL" --transition-type center
 wal -i "$SELECTED_WALL"
 
 pywalfox update
-echo "bad"
 swaync-client -rs
 
 
 
-echo "Reloading Waybar..."
-if pgrep -x "waybar" > /dev/null; then
-    pkill -SIGUSR2 waybar
 
-    echo "Waybar reloaded successfully."
-else
-    echo "Warning: Waybar process not found. Skipping Waybar reload."
+# Find the Process ID (PID) of the Waybar instance
+WAYBAR_PID=$(pgrep waybar)
+
+# Check if Waybar is running
+if [ -z "$WAYBAR_PID" ]; then
+    echo "Waybar is not running."
+    exit 1
 fi
 
+# Send the SIGUSR1 signal to Waybar to reload its configuration
+# SIGUSR1 is signal number 10, but 'USR1' is more readable.
+pkill -USR1 "$WAYBAR_PID"
 
-
+echo "Waybar reloaded."
 

@@ -27,7 +27,7 @@
         
         "backlight",
         "backlight/slider",
-        "keyboard-state",
+        //"keyboard-state",
         "sway/language",
         "battery",
         "battery#bat2",

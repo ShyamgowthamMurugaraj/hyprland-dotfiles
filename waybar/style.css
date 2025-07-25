@@ -93,8 +93,8 @@ button:hover {
 #mpd,
 #custom-notification
 {
+    margin-bottom:6px;
     margin-top: 3px;
-    margin-bottom: 6px;
     padding-left: 11px;
     padding-right: 11px;
     color: #FFF;
@@ -195,13 +195,14 @@ label:focus {
 }
 
 #network {
+    padding-bottom:2px;
     color: @color3;
     padding-right: 15px;
     padding-left:8px;
 }
 
 #network.disconnected {
-    background-color: #f53c3c;
+   color: #F00;
 }
 
 #pulseaudio {
@@ -297,6 +298,11 @@ label:focus {
 
 }
 
+#custom-notification:hover {
+   color:#FFF;
+}
+
+
 
 #custom-media.custom-spotify {
     background-color: #66cc99;
@@ -307,6 +313,7 @@ label:focus {
 }
 
 #temperature {
+    padding-top:3px;
     color: @color4;
 }
 
