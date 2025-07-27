@@ -3,7 +3,7 @@
     
     "height": 31, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
-    "spacing": 5, // Gaps between modules (4px)
+    "spacing": 0, // Gaps between modules (4px)
     // Choose the order of the modules
     "modules-left": [
         "cpu",
@@ -125,13 +125,12 @@
     "memory": {
         "interval": 1,
         // "rotate": 270,
-        "format": "MEM: {icon}",
-        "format-icons": ["󰝦","󰪞","󰪟","󰪠","󰪡","󰪢","󰪣","󰪤","󰪥"],
-        "max-length": 10
+        "format": "[ MEM: {icon} ]",
+        "format-icons": ["󰝦","󰪞","󰪟","󰪠","󰪡","󰪢","󰪣","󰪤","󰪥"]
     },
     "cpu": {
         "interval": 1,
-        "format": "CPU: {icon}",
+        "format": "[ CPU: {icon} ]",
         // "rotate": 270,
         "format-icons": ["󰝦","󰪞","󰪟","󰪠","󰪡","󰪢","󰪣","󰪤","󰪥"],
     },
@@ -140,12 +139,10 @@
         // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
         "critical-threshold": 80,
         // "format-critical": "{temperatureC}°C {icon}",
-        "format": "{temperatureC}°C {icon}",
+        "format": "[ {temperatureC}°C {icon} ]",
         "format-icons": ["🌡", "🌡", "🌡"]
     },
-    "custom/cava": {
-    "exec": "sleep 3 && cava -p ~/.config/cava/config | sed -u 's/;//g;s/0/0/g;s/1/1/g;s/2/2/g;s/3/3/g;s/4/4/g;s/5/5/g;s/6/6/g;s/7/7/g;s/8/8/g;s/9/9/g;'"
-    },
+    
     "backlight": {
         // "device": "acpi_video1",
         "format": "{icon}",
@@ -178,11 +175,11 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "{capacity}% {icon}",
+        "format": "[{capacity}% {icon} ]",
         "format-full": "{capacity}% {icon}",
         "format-charging": "{capacity}% ",
         "format-plugged": "{capacity}% ",
-        "format-alt": "{icon}",
+        "format-alt": "[{icon} ]",
 
         "format-icons": ["", "", "", "", ""]
     },
@@ -202,12 +199,12 @@
     },
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
-        "format-wifi": "",
-        "format-ethernet": "{ipaddr}/{cidr} ",
-        "tooltip-format": "{ifname} via {gwaddr} ",
-        "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "Disconnected ⚠",
-        "format-alt": "  {essid}"
+        "format-wifi": "[   ]" ,
+        "format-ethernet": "[ {ipaddr}/{cidr}  ] ",
+        "tooltip-format": "[ {ifname} via {gwaddr}  ] ",
+        "format-linked": "[ {ifname} (No IP)   ]",
+        "format-disconnected": "[ Disconnected ⚠ ]",
+        "format-alt": "[   {essid} ]"
 
     },
     "pulseaudio": {
@@ -257,7 +254,7 @@
         // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
     },
     "custom/power": {
-        "format" : " ⏻ ",
+        "format" : "[⏻]",
 		"tooltip": false,
 		"menu": "on-click",
 		"menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder
@@ -270,20 +267,21 @@
     },
 
     "custom/swww": {
-        "format":"swww",
+        "format":"[ wal ]",
         "on-click":"reload_waybar.sh",
         "on-click-right":"/usr/bin/reload_waybar-back.sh"
     },
-"custom/wayves": {
-    "format": "{}",
-    "exec": "python $HOME/.config/waybar/wayves/wayves.py -o cava -i cava -a cava"
-},
-"custom/spotify": {
-"format": "{} ",
-"exec": "$HOME/.config/waybar/mediaplayer.sh",
-"return-type": "json",
-"on-click": "playerctl -p spotify play-pause",
-"on-scroll-up": "playerctl -p spotify next",
-"on-scroll-down": "playerctl -p spotify previous",
-"exec-if": "pgrep spotfiy"}
-}
+    "custom/wayves": {
+        "format": "{}",
+        "exec": "python $HOME/.config/waybar/wayves/wayves.py -o cava -i cava -a cava"
+    },
+    "custom/spotify": {
+    "format": "{} ",
+    "max-lenght":30,
+    "exec": "$HOME/.config/waybar/mediaplayer.py",
+    "return-type": "json",
+    "on-click": "playerctl -p spotify play-pause",
+    "on-scroll-up": "playerctl -p spotify next",
+    "on-scroll-down": "playerctl -p spotify previous",
+    "exec-if": "pgrep spotfiy"}
+    }

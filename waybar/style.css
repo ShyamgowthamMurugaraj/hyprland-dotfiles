@@ -308,10 +308,11 @@ label:focus {
 }
 
 #custom-notification {
+    font-size: 18px;
     color: @color9;
     padding-left:6px;
     padding-right:8px;
-
+    
 
 }
 
