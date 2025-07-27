@@ -4,7 +4,7 @@
 
 * {
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: JetBrains Mono;
+    font-family: Iosevka;
     font-size: 14px;
 }
 
@@ -25,7 +25,9 @@ window#waybar.termite {
     background-color: #3F3F3F;
 }
 
-
+#custom-wayves {
+    color:@color2;
+}
 
 window#waybar.chromium {
     background-color: #000000;
@@ -73,6 +75,7 @@ button:hover {
     box-shadow: inset 0 -3px #ffffff;
 }
 
+
 #clock,
 #battery,
 #cpu,
@@ -85,6 +88,7 @@ button:hover {
 #wireplumber,
 #custom-media,
 #custom-swww,
+#custom-cava,
 #tray,
 #mode,
 #idle_inhibitor,
@@ -127,6 +131,7 @@ button:hover {
 
     padding-left:6px;
 }
+
 
 #battery.charging, #battery.plugged {
     color: @foreground;
@@ -178,9 +183,13 @@ label:focus {
     
 }
 
-#memory, #custom-swww {
+#memory,#custom-spotify, #custom-swww {
     color: @color2;
 }
+
+#custom-spotify:hover {
+    color:#FFF;
+    }
 
 #custom-swww:hover {
     color:#FFF;
@@ -194,6 +203,10 @@ label:focus {
     color:@background;
 }
 
+#custom-spotify{
+    padding-right:10px;
+    padding-bottom:5px;
+}
 #network {
     padding-bottom:2px;
     color: @color3;
@@ -217,6 +230,10 @@ label:focus {
     padding-bottom: 5px;
     color:@color5;
     font-size:18px;
+}
+
+#custom-power:hover {
+    color:#FFF;
 }
 
 #backlight-slider slider {
@@ -318,7 +335,7 @@ label:focus {
 }
 
 #temperature.critical {
-    background-color: #eb4d4b;
+    color: #F00;
 }
 
 #tray {
@@ -431,6 +448,12 @@ label:focus {
     margin-left: 0px;
 
 }
+
+#cava {
+    color:@color2;
+    font-family:"bargraph";
+    font-size:22px;
+}
 #clock,
 #battery,
 #cpu,
@@ -449,10 +472,16 @@ label:focus {
 #scratchpad,
 #power-profiles-daemon,
 #mpd,
-#custom-notification
+#custom-notification,
+#cava
 {
     background-color: @background;
     border-radius:5px;
     /* border: 2px solid @foreground; */
 
+}
+
+
+#cava {
+    background-color:@FFF;
 }
