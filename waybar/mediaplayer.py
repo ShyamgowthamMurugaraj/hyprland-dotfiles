@@ -74,7 +74,9 @@ def main():
     last_known_artist = ""
     last_known_title = ""
 
+    count=0
     while True:
+        count+=1
         current_time = time.time()
 
         # Check player status and update full_track_info less frequently
@@ -120,14 +122,19 @@ def main():
         # Determine the text to display based on player status and scrolling logic
         display_text = ""
         tooltip_text = full_track_info # Tooltip always shows the full info
-
+        scrollable_content=""
         if player_current_status == "Playing":
             if len(full_track_info) > MAX_DISPLAY_LENGTH:
+                if scrollable_content:
+                    scrollable_content=list(scrollable_content)
+                    del scrollable_content[:start_index]
+                    scrollable_content="".join(scrollable_content)
+                print(scrollable_content)
                 # Create a scrollable string by repeating the info and adding a separator
                 # This ensures enough content to slice without index errors and for wrapping effect
                 scrollable_content = full_track_info + "   " # Add some spaces for separation
-                scrollable_content = scrollable_content * 2 # Repeat to ensure continuous scroll
-
+                scrollable_content = scrollable_content * count # Repeat to ensure continuous scroll
+                
                 # Get the current segment for display, ensuring it's MAX_DISPLAY_LENGTH long
                 start_index = scroll_position % len(scrollable_content)
                 display_text = scrollable_content[start_index : start_index + MAX_DISPLAY_LENGTH].ljust(MAX_DISPLAY_LENGTH)
