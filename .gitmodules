@@ -1,0 +1,3 @@
+[submodule "waybar/wayves"]
+	path = waybar/wayves
+	url = https://github.com/jvc84/wayves
