@@ -1,0 +1,44 @@
+
+
+[bell]
+animation = "EaseOutExpo"
+
+
+[general]
+import = ["~/.cache/wal/colors-alacritty.toml"]
+
+
+
+
+[cursor.style]
+blinking = "On"
+shape = "Beam"
+
+[font]
+size = 11
+
+[font.bold]
+family = "Iosevka"
+style = "Bold"
+
+[font.bold_italic]
+family = "Iosevka"
+style = "Bold Italic"
+
+[font.italic]
+family = "Iosevka"
+style = "Italic"
+
+[font.normal]
+family = "Iosevka"
+style = "Regular"
+
+[window]
+opacity = 0.80
+
+[window.padding]
+x = 5
+y = 5
+
+
+
